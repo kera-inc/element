@@ -1,0 +1,19 @@
+{
+  "name": "element",
+  "version": "0.0.1",
+  "author": "Kera Software <services@kera.io>",
+  "private": true,
+
+  "devDependencies": {
+    "mocha": "1.6.0",
+    "expect.js": "0.1.2",
+    "sinon": "1.5.0",
+    "component-builder": "0.2.1",
+    "testacular": "0.4.0",
+    "phantomjs": "0.2.x"
+  },
+
+  "scripts": {
+    "test": "node ./scripts/test"
+  }
+}
