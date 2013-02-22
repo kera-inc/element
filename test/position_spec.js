@@ -1,6 +1,6 @@
 describe('ElementPosition', function() {
   var $ = require('component-jquery');
-  var ElementPosition = require('element/index');
+  var ElementPosition = require('element/index').Position;
   var expect = chai.expect;
 
   var element;
