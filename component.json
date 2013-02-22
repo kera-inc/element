@@ -6,6 +6,7 @@
   },
 
   "scripts": [
-    "index.js"
+    "index.js",
+    "lib/position.js"
   ]
 }
