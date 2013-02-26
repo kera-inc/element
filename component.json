@@ -8,6 +8,7 @@
   "scripts": [
     "index.js",
     "lib/position.js",
+    "lib/detectSelector.js",
     "lib/encode.js",
     "lib/decode.js"
   ]
