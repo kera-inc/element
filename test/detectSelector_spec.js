@@ -5,7 +5,7 @@ var expect = chai.expect;
 
 describe('DetectSelector', function() {
   beforeEach(function() {
-    $("body").append($("<div id='test'></div>"));
+    $("body").append($("<div id='test' class='test'></div>"));
     expect($("#test").length).to.equal(1);
   });
 
@@ -65,6 +65,35 @@ describe('DetectSelector', function() {
 
     doc.remove();
   });
+
+  describe("ignoreIDs", function() {
+    it("ignores ids when instructed", function() {
+      var elements = $("#test");
+
+      expect(elements.length).to.equal(1);
+
+      debugger;
+      var selector = DetectSelector(elements[0], { ignoreIDs: true });
+      expect(selector).to.not.equal("#test");
+    });
+
+    it("ignores nested ids as well", function() {
+      // Adding another 'div' sibling so that it uses the classes instead of crawling up
+      // the tree of tagName parents.
+      var nestedDoc1 = $('<div id="beep" class="beep"></div>');
+      var nestedDoc2 = $('<div id="boop" class="boop"></div>');
+      $("#test").append(nestedDoc1);
+      $("#test").append(nestedDoc2);
+
+      var elements = $("#beep");
+      expect(elements.length).to.equal(1);
+
+      var selector = DetectSelector(elements[0], { ignoreIDs: true });
+      expect(selector).to.equal(".beep");
+    });
+  });
+
+
 
 });
 

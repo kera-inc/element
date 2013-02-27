@@ -38,6 +38,8 @@ function runFrontEndTests() {
   var testacular = __dirname + "/../node_modules/testacular/bin/testacular";
   var browsers = (process.env.CI) ? 'PhantomJS' : 'Chrome';
   var options = '--single-run --browsers=' + browsers;
+  // var options = '--auto-watch --browsers=' + browsers;
+
   var command = phantom_bin + ' ' + testacular + ' start ' + __dirname + '/../test/testacular.conf.js ' + options;
 
   exec(command, function(err, stdout, stderr) {
