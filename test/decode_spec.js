@@ -18,6 +18,14 @@ describe('Decode', function() {
     expect(decoded).to.equal(el);
   });
 
+  it("doesn't decode a hidden element", function() {
+    $("#doot").hide();
+    var encoded = JSON.stringify({ paths: ["#doot"]});
+    var decoded = Decode(encoded);
+    expect(decoded).to.equal(null);
+  });
+
+
   it("returns null when element not found", function() {
     var encoded = JSON.stringify({ paths: ["#beep"]});
     var decoded = Decode(encoded);
