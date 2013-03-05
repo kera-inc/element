@@ -66,6 +66,18 @@ describe('DetectSelector', function() {
     doc.remove();
   });
 
+  it('quotes attribute based selectors', function() {
+    var doc = $('<input type="text" name="form[FullName]" id="FullName">');
+    $(document.body).append(doc);
+
+    var elements = $('[name="form[FullName]"]');
+    expect(elements).to.have.length(1);
+
+    var selector = DetectSelector(elements[0]);
+
+    expect(selector).to.equal('[name="form[FullName]"]');
+  });
+
   describe("ignoreIDs", function() {
     it("ignores ids when instructed", function() {
       var elements = $("#test");
